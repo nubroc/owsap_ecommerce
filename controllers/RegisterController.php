@@ -16,7 +16,7 @@
                 $result = $userModel->register($name, $fullname, $email, $password);
     
                 if ($result) {
-                    header("Location: /login");
+                    header("Location: index.php?page=login");
                     exit();
                 }
             }

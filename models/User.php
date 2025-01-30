@@ -24,13 +24,13 @@ class User {
     }
 
     public function register($name, $fullname, $email, $password) {
-        $sql = "INSERT INTO user (name, fullname, email, password) VALUES (:name, :fullname, :email, :password)";
+        $sql = "INSERT INTO user (nom, prenom, email, mdp) VALUES (:nom, :prenom, :email, :mdp)";
         $stmt = $this->conn->prepare($sql);
         $result = $stmt->execute([
-            ':name' => $name,
-            ':fullname' => $fullname,
+            ':nom' => $name,
+            ':prenom' => $fullname,
             ':email' => $email,
-            ':password' => password_hash($password, PASSWORD_DEFAULT)
+            ':mdp' => password_hash($password, PASSWORD_DEFAULT)
         ]);
         
         return $result;
