@@ -9,7 +9,6 @@ class Article {
     private $image;
     private $prix;
 
-
     public function getId() {
         return $this->id;
     }
@@ -30,19 +29,18 @@ class Article {
         return $this->prix;
     }
 
-
     public static function getAll() {
         $db = Database::getInstance();
         $stmt = $db->query("
             SELECT
-                id as id,
-                nom as nom,
-                description as description,
-                image as image,
-                prix as prix,
+                id,
+                nom,
+                description,
+                image,
+                prix
             FROM article
         ");
-        $stmt->setFetchMode(PDO::FETCH_CLASS, 'Product');
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'Article');
         return $stmt->fetchAll();
     }
 
@@ -50,16 +48,16 @@ class Article {
         $db = Database::getInstance();
         $stmt = $db->prepare("
             SELECT
-                id as id,
-                nom as nom,
-                description as description,
-                image as image,
-                prix as prix,
+                id,
+                nom,
+                description,
+                image,
+                prix
             FROM article
             WHERE id = ?
         ");
         $stmt->execute([$id]);
-        $stmt->setFetchMode(PDO::FETCH_CLASS, 'Product');
+        $stmt->setFetchMode(PDO::FETCH_CLASS, 'Article');
         return $stmt->fetch();
     }
 }
