@@ -5,6 +5,7 @@ require_once 'config/Database.php';
 require_once 'controllers/HomeController.php';
 require_once 'controllers/LoginController.php';
 require_once 'controllers/ProduitController.php';
+require_once 'controllers/RegisterController.php';
 
 
 $database = new Database();
@@ -24,7 +25,10 @@ if ($page === 'home') {
     $authController->logout();
 } elseif ($page === 'catalogue') {
     $produitController = new ProduitController();
-    $produitController->catalogue(); 
+    $produitController->catalogue();
+} elseif ($page === 'register') {
+    $produitController = new RegisterController();
+    $produitController->register();
 } else {
     echo "Page non trouvée";
 }
