@@ -44,12 +44,11 @@ CREATE TABLE IF NOT EXISTS `contact` (
 
 
 START TRANSACTION;
-INSERT INTO `product` (`id`, `nom`, `description`, `image`, `prix`,) VALUES (1, 'premier produit', 'lorem','/public/image2/telescope_amateur.jpg','120',);
-INSERT INTO `product` (`id`, `name`, `description`, `picture`, `price`,) VALUES (2, '', '', '', '');
-INSERT INTO `product` (`id`, `name`, `description`, `picture`, `price`,) VALUES (3, '', '', '', '');
-INSERT INTO `product` (`id`, `name`, `description`, `picture`, `price`,) VALUES (4, '', '', '', '');
-INSERT INTO `product` (`id`, `name`, `description`, `picture`, `price`,) VALUES (5, '', '', '', '',);
-INSERT INTO `product` (`id`, `name`, `description`, `picture`, `price`,) VALUES (6, '', '', '', '');
+INSERT INTO `article` (`id`, `nom`, `description`, `image`, `prix`) VALUES (1, 'premier produit', 'lorem','/public/image2/telescope_amateur.jpg','120');
+INSERT INTO `article` (`id`, `nom`, `description`, `image`, `prix`) VALUES (2, 'deuxième produit', 'lorem','/public/image2/telescope_amateur.jpg','140');
+INSERT INTO `article` (`id`, `nom`, `description`, `image`, `prix`) VALUES (3, 'troisième produit', 'lorem','/public/image2/telescope_amateur.jpg','20');
+INSERT INTO `article` (`id`, `nom`, `description`, `image`, `prix`) VALUES (4, 'quatrieme produit', 'lorem','/public/image2/telescope_amateur.jpg','170');
+
 
 Select * from article;
 
