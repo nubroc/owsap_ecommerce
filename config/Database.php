@@ -6,25 +6,28 @@ class Database {
     private $db_name = "owsap_ecommerce";
     private $username = "root";
     private $password = "";
-    public $conn;
+
+    public function __construct() {
+        $this->getConnection();
+    }
 
     public function getConnection() {
-        $this->conn = null;
+        $this->pdo = null;
 
         try {
-            $this->conn = new PDO("mysql:host={$this->host};dbname={$this->db_name}", $this->username, $this->password);
-            $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->pdo = new PDO("mysql:host={$this->host};dbname={$this->db_name}", $this->username, $this->password);
+            $this->pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $exception) {
             echo "Connection error: " . $exception->getMessage();
         }
 
-        return $this->conn;
+        return $this->pdo;
     }
-        public static function getInstance() {
+
+    public static function getInstance() {
         if (self::$instance === null) {
             self::$instance = new self();
         }
         return self::$instance->pdo;
     }
 }
-?>
