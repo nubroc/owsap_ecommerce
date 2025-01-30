@@ -1,7 +1,8 @@
 <?php
 require_once 'controllers/LoginController.php' ;
 require_once 'controllers/HomeController.php';
-require_once 'controllers/RegisterController.php' ;
+require_once 'controllers/RegisterController.php';
+require_once 'controllers/ProduitController.php' ;
 $page = $_GET['page'] ?? 'home';
 
 
@@ -14,6 +15,10 @@ switch($page) {
     case 'register':
         $controller = new RegisterController();
         $controller->register();
+        break;
+    
+    case 'catalogue' :
+        $produitController = new ProduitController();
         break;
 
     case 'login':
