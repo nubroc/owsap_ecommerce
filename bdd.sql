@@ -15,7 +15,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
   `nom` VARCHAR(45) NOT NULL,
   `prenom` VARCHAR(45) NOT NULL,
-  `email` VARCHAR(255) NOT NULL,
+  `email` VARCHAR(255) UNIQUE NOT NULL,
   `mdp` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`id`)
 );
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `contact` (
 
 
 START TRANSACTION;
-INSERT INTO `product` (`id`, `name`, `description`, `picture`, `price`,) VALUES (1, '', '','','',);
+INSERT INTO `product` (`id`, `nom`, `description`, `image`, `prix`,) VALUES (1, 'premier produit', 'lorem','/public/image2/telescope_amateur.jpg','120',);
 INSERT INTO `product` (`id`, `name`, `description`, `picture`, `price`,) VALUES (2, '', '', '', '');
 INSERT INTO `product` (`id`, `name`, `description`, `picture`, `price`,) VALUES (3, '', '', '', '');
 INSERT INTO `product` (`id`, `name`, `description`, `picture`, `price`,) VALUES (4, '', '', '', '');
@@ -52,5 +52,6 @@ INSERT INTO `product` (`id`, `name`, `description`, `picture`, `price`,) VALUES 
 INSERT INTO `product` (`id`, `name`, `description`, `picture`, `price`,) VALUES (6, '', '', '', '');
 
 Select * from article;
+
 
 
