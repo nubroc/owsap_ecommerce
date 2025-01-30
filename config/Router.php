@@ -1,12 +1,12 @@
 <?php
-require_once 'controllers/LoginController.php' ;
 require_once 'controllers/HomeController.php';
 require_once 'controllers/RegisterController.php';
-require_once 'controllers/ProduitController.php' ;
+require_once 'controllers/LoginController.php';
+require_once 'controllers/ProduitController.php';
+
 $page = $_GET['page'] ?? 'home';
 
-
-switch($page) {
+switch ($page) {
     case 'home':
         $controller = new HomeController();
         $controller->index();
@@ -16,19 +16,14 @@ switch($page) {
         $controller = new RegisterController();
         $controller->register();
         break;
-    
-    case 'catalogue' :
-        $produitController = new ProduitController();
-        break;
 
     case 'login':
-        $controller = new AuthController();
+        $controller = new LoginController();
         $controller->login();
         break;
 
-    case 'logout':
-        $controller = new AuthController();
-        $controller->logout();
+    case 'catalogue':
+        $produitController = new ProduitController();
         break;
 
     default:
