@@ -10,7 +10,7 @@ class User {
         $this->conn = $database->getConnection();
     }
 
-    public function login($email, $password) {
+    public function Login($email, $password) {
         $query = "SELECT * FROM " . $this->table_name . " WHERE email = :email";
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(":email", $email);
@@ -22,5 +22,19 @@ class User {
         }
         return false;
     }
+
+    public function register($name, $fullname, $email, $password) {
+        $sql = "INSERT INTO user (name, fullname, email, password) VALUES (:name, :fullname, :email, :password)";
+        $stmt = $this->conn->prepare($sql);
+        $result = $stmt->execute([
+            ':name' => $name,
+            ':fullname' => $fullname,
+            ':email' => $email,
+            ':password' => password_hash($password, PASSWORD_DEFAULT)
+        ]);
+        
+        return $result;
+    }
+    
 }
 ?>
