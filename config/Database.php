@@ -18,5 +18,11 @@ class Database {
 
         return $this->conn;
     }
+        public static function getInstance() {
+        if (self::$instance === null) {
+            self::$instance = new self();
+        }
+        return self::$instance->pdo;
+    }
 }
 ?>
