@@ -1,5 +1,7 @@
 <?php
 class Database {
+    private static $instance = null;
+    private $pdo;
     private $host = "localhost";
     private $db_name = "owsap_ecommerce";
     private $username = "root";
