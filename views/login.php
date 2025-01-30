@@ -1,4 +1,6 @@
-<?php ?>
+<?php 
+include "partials/header.php";
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -19,5 +21,7 @@
         <button type="submit">Se connecter</button>
     </form>
 </body>
+<?php
+include "partials/footer.php"
+?>
 </html>
-
