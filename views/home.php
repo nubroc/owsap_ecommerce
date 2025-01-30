@@ -1,11 +1,14 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hello World</title>
-</head>
-<body>
-    <h1>Hello World</h1>
-</body>
-</html>
+<?php
+class HomeController {
+    public function index() {
+        session_start();
+        if (!isset($_SESSION["user"])) {
+            header("Location: index.php?page=login");
+            exit();
+        }
+
+        echo "<h1>Bienvenue, " . $_SESSION["user"] . " !</h1>";
+        echo "<a href='index.php?page=logout'>Se déconnecter</a>";
+    }
+}
+?>
