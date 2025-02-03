@@ -1,14 +1,29 @@
-<?php
-class HomeController {
-    public function index() {
-        session_start();
-        if (!isset($_SESSION["user"])) {
-            header("Location: index.php?page=login");
-            exit();
-        }
+<!DOCTYPE html >    
+<html>
 
-        echo "<h1>Bienvenue, " . $_SESSION["user"] . " !</h1>";
-        echo "<a href='index.php?page=logout'>Se déconnecter</a>";
-    }
-}
-?>
+<head>
+    <title>Home</title>
+    <meta charset="utf-8">
+
+</head>
+<body>
+<nav>
+    <ul>
+        <li>
+            <img src="" alt="logo">
+        </li>
+        <li>sous-categorie1</li>
+        <li>sous-categorie2</li>
+        <li>sous-categorie3</li>
+        <li> logout </li>
+
+    </ul>
+</nav>
+
+</body>
+<footer></footer>
+</html>
+
+
+
+

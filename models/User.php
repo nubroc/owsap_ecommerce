@@ -3,7 +3,7 @@ require_once "config/Database.php";
 
 class User {
     private $conn;
-    private $table_name = "users";
+    private $table_name = "user";
 
     public function __construct() {
         $database = new Database();
