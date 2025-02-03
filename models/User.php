@@ -15,13 +15,15 @@ class User {
         $stmt = $this->conn->prepare($query);
         $stmt->bindParam(":email", $email);
         $stmt->execute();
-
+    
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
-        if ($user && password_verify($password, $user["password"])) {
+    
+        if ($user && !empty($user['password']) && password_verify($password, $user['password'])) {
             return $user;
         }
         return false;
     }
+    
 
     public function register($name, $fullname, $email, $password) {
         $sql = "INSERT INTO user (nom, prenom, email, mdp) VALUES (:nom, :prenom, :email, :mdp)";
