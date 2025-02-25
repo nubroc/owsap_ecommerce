@@ -24,9 +24,11 @@ switch ($page) {
 
     case 'catalogue':
         $produitController = new ProduitController();
+        $produitController->catalogue();
         break;
 
     default:
         echo "Erreur 404 : Page non trouvée";
         break;
 }
+?>

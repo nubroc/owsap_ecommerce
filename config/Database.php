@@ -5,7 +5,7 @@ class Database {
     private $host = "localhost";
     private $db_name = "owsap_ecommerce";
     private $username = "root";
-    private $password = "";
+    private $password = "FaBen456BizBob";
 
     public function __construct() {
         $this->getConnection();

@@ -8,11 +8,11 @@
 </head>
 <body>  
 <header>
-            <a href="/"><img src="../image/home.svg" alt="home"width="30"></a>
+            <a href="../home"><img src="../image/home.svg" alt="home"width="30"></a>
             •
-            <a href="/catalogue"><img src="../image/catalog-alt.svg" alt="Catalogue" width="30"></a>
+            <a href="../catalogue"><img src="../image/catalog-alt.svg" alt="Catalogue" width="30"></a>
             •
-            <a href="/inscription"><img src="../image/user.svg" alt="inscription" width="30"></a> 
+            <a href="../register"><img src="../image/user.svg" alt="inscription" width="30"></a> 
             
             
             <form action="recherche.php" method="get" id="headersearch">

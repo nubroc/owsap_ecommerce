@@ -15,5 +15,5 @@ include "partials/header.php";
                    
             </div>
         </div>
-    <?php endforeach; ?>
-<?php endif; ?>
+        <?php endforeach; ?>
+    <?php endif; ?>

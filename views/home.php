@@ -1,5 +1,8 @@
 <!DOCTYPE html >    
 <html>
+<?php
+include "partials/header.php";
+?>
 
 <head>
     <title>Home</title>
