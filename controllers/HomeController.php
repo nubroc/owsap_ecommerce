@@ -11,7 +11,6 @@ class HomeController {
 */
     include 'views/home.php';
 
-    echo "Bienvenue sur la page d'accueil !";
 
 }
 }

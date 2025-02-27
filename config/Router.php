@@ -5,6 +5,7 @@ require_once 'controllers/LoginController.php';
 require_once 'controllers/ProduitController.php';
 
 $page = $_GET['page'] ?? 'home';
+//echo "Current page: " . $page;
 
 switch ($page) {
     case 'home':
