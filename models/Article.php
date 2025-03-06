@@ -2,62 +2,42 @@
 
 include_once __DIR__ . '/../config/Database.php';
 
-class Article {
-    private $id;
-    private $nom;
-    private $description;
-    private $image;
-    private $prix;
+class Article
+{
+    private $conn;
 
-    public function getId() {
-        return $this->id;
+    public function __construct()
+    {
+        $database = new Database();
+        $this->conn = $database->getConnection();
     }
 
-    public function getNom() {
-        return $this->nom;
+    public function fetchAllProducts()
+    {
+        try {
+            $sql = "SELECT * FROM products";
+            $stmt = $this->conn->query($sql);
+            $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+            return $products;
+        } catch (Exception $e) {
+            error_log("Erreur lors de la récupération des produits : " . $e->getMessage());
+            throw new Exception("Une erreur s'est produite lors de la récupération des produits.");
+        }
     }
 
-    public function getDescription() {
-        return $this->description;
+    public function fetchProduct($id)
+    {
+        try {
+            $sql = "SELECT * FROM products WHERE id = :id";
+            $stmt = $this->conn->prepare($sql);
+            $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+            $stmt->execute();
+            $product = $stmt->fetch(PDO::FETCH_ASSOC);
+            return $product;
+        } catch (Exception $e) {
+            error_log("Erreur lors de la récupération du produit : " . $e->getMessage());
+            throw new Exception("Une erreur s'est produite lors de la récupération du produit.");
+        }
     }
-
-    public function getImage() {
-        return $this->image;
-    }
-
-    public function getPrix() {
-        return $this->prix;
-    }
-
-    public static function getAll() {
-        $db = Database::getInstance();
-        $stmt = $db->query("
-            SELECT
-                id,
-                nom,
-                description,
-                image,
-                prix
-            FROM article
-        ");
-        $stmt->setFetchMode(PDO::FETCH_CLASS, 'Article');
-        return $stmt->fetchAll();
-    }
-
-    public static function getById($id) {
-        $db = Database::getInstance();
-        $stmt = $db->prepare("
-            SELECT
-                id,
-                nom,
-                description,
-                image,
-                prix
-            FROM article
-            WHERE id = ?
-        ");
-        $stmt->execute([$id]);
-        $stmt->setFetchMode(PDO::FETCH_CLASS, 'Article');
-        return $stmt->fetch();
-    }
+   
 }
